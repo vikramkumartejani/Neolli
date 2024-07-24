@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
       <WhatIsNeolli />
-      {/* <PopularCategories /> */}
+      <PopularCategories />
       <OurArtisans />
       <Academy />
       <ImGoingForIt />

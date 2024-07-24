@@ -15,19 +15,19 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'Pourquoi acheter sur Neolli plutôt qu\'en direct auprès de la marque ?',
-      answer: 'Pourquoi acheter sur Neolli plutôt qu\'en direct auprès de la marque ?'
+      question: 'Pourquoi acheter sur Neolli plutôt qu\'en direct auprès de la marque?',
+      answer: 'Pourquoi acheter sur Neolli plutôt qu\'en direct auprès de la marque?'
     },
     {
-      question: 'Qui peut acheter sur Neolli ?',
-      answer: 'Qui peut acheter sur Neolli ?'
+      question: 'Qui peut acheter sur Neolli?',
+      answer: 'Qui peut acheter sur Neolli?'
     },
     {
-      question: 'Combien coûte Neolli à un commerçant ?',
-      answer: 'Combien coûte Neolli à un commerçant ?'
+      question: 'Combien coûte Neolli à un commerçant?',
+      answer: 'Combien coûte Neolli à un commerçant?'
     },
     {
-      question: 'Quels sont les pays autorisés à acheter sur Neolli ?',
+      question: 'Quels sont les pays autorisés à acheter sur Neolli?',
       answer: 'Quels sont les pays autorisés à acheter sur Neolli ?'
     }
   ];
