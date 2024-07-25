@@ -8,6 +8,20 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
 
+    // Underline
+     const [activeLink, setActiveLink] = useState('/');
+
+     const handleLinkClick = (path) => {
+         setActiveLink(path);
+     };
+ 
+     const getLinkClass = (path) => {
+         return `text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif ${activeLink === path ? 'underline underline-offset-4' : ''}`;
+     };
+
+
+
+    //  Mobile Menu
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
@@ -81,44 +95,58 @@ const Navbar = () => {
                 <div className='w-full h-[1px] bg-[#BA8950] mt-2'></div>
 
                 <div className='lg:flex hidden items-center justify-center flex-wrap gap-4 md:gap-16 py-4 w-full max-w-[1440px] mx-auto px-7'>
-                    <Link href='/' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>Home</Link>
-                    <Link href='/artisan' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>Artisan</Link>
-                    <Link href='/bestsellers' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>Best Sellers</Link>
-                    <Link href='/categories' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>Categories</Link>
-                    <Link href='/products' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>Products</Link>
-                    <Link href='/aboutus' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif underline underline-offset-4'>About Us</Link>
+                    <Link href='/' className={getLinkClass('/')} onClick={() => handleLinkClick('/')}>
+                        Home
+                    </Link>
+                    <Link href='/artisan' className={getLinkClass('/artisan')} onClick={() => handleLinkClick('/artisan')}>
+                        Artisan
+                    </Link>
+                    <Link href='/bestsellers' className={getLinkClass('/bestsellers')} onClick={() => handleLinkClick('/bestsellers')}>
+                        Best Sellers
+                    </Link>
+                    <Link href='/categories' className={getLinkClass('/categories')} onClick={() => handleLinkClick('/categories')}>
+                        Categories
+                    </Link>
+                    <Link href='/products' className={getLinkClass('/products')} onClick={() => handleLinkClick('/products')}>
+                        Products
+                    </Link>
+                    <Link href='/aboutus' className={getLinkClass('/aboutus')} onClick={() => handleLinkClick('/aboutus')}>
+                        About Us
+                    </Link>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className='fixed top-0 right-5 bottom-0 left-0 bg-white shadow-lg z-[999] flex flex-col items-center py-4'>
-                    <div className='flex items-center gap-2'>
-                        <div className='mr-[20px] flex items-center px-3 py-2 w-[250px] justify-between border border-[#7E5728] bg-white rounded-[16px]'>
-                            <div className='flex items-center gap-1.5'>
-                                <Image src='/assets/search-icon.svg' alt='icon' width={19} height={19} />
-                                <input type='text' placeholder='Search' className=' w-[200px] xl:w-[500px] bg-transparent outline-none text-[#7E5728] placeholder:text-[#7E5728] text-[13.31px] leading-[15.6px] font-extralight' />
-                            </div>
-                            <Image src='/assets/chevron-down.svg' alt='icon' width={19} height={19} />
+                <div className='fixed top-0 right-5 bottom-0 left-0 bg-white shadow-lg z-[999] flex flex-col justify-center items-center py-4 px-3'>
+                    {/* Close btn */}
+                    <button className='self-end p-4 text-[#7E5728] absolute top-0 right-0' onClick={toggleMobileMenu} aria-label='Close mobile menu'><AiOutlineClose className='w-[30px] h-[30px]' /></button>
+
+                    {/* Search */}
+                    <div className='mr-[20px] flex items-center px-3 py-2 sm:w-[250px] w-full ml-3 justify-between border border-[#7E5728] bg-white rounded-[16px]'>
+                        <div className='flex items-center gap-1.5 w-full'>
+                            <Image src='/assets/search-icon.svg' alt='icon' width={19} height={19} />
+                            <input type='text' placeholder='Search' className=' w-full xl:w-[500px] bg-transparent outline-none text-[#7E5728] placeholder:text-[#7E5728] text-[13.31px] leading-[15.6px] font-extralight' />
                         </div>
-                        <button className='self-end p-4 text-[#7E5728]' onClick={toggleMobileMenu} aria-label='Close mobile menu'><AiOutlineClose className='w-[30px] h-[30px]' /></button>
+                        <Image src='/assets/chevron-down.svg' alt='icon' width={19} height={19} />
                     </div>
 
-                    <div className='flex flex-col items-center gap-6 mb-5'>
-
+                    {/* Login & Register & Apply to Sell */}
+                    <div className='flex flex-wrap items-center gap-6 my-10'>
                         <button onClick={openLoginModal} className='text-[#7E5728] text-[16.63px] font-normal underline underline-offset-4'>Log in</button>
                         <button onClick={openRegisterModal} className='border-[0.76px] border-[#BA8950] w-[113px] h-[30px] rounded-[37px] text-[16.63] text-[#BA8950] leading-[19.49px] font-normal'>Register</button>
-                        <Link href='/apply-to-sell' className='text-white text-[16.63px] leading-[19.49px] font-normal w-[129px] h-[30px] rounded-[37px] bg-[#AA7639] flex items-center justify-center'>Apply To Sell</Link>
+                        <Link href='/apply-to-sell' className='text-white text-[16.63px] leading-[19.49px] font-normal w-[129px] h-[30px] rounded-[37px] bg-[#AA7639] flex items-center justify-center' onClick={toggleMobileMenu}>Apply To Sell</Link>
                     </div>
 
-                    <nav className='flex flex-col items-center gap-4'>
-                        <Link href='/' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>Home</Link>
-                        <Link href='/artisan' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>Artisan</Link>
-                        <Link href='/bestsellers' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>Best Sellers</Link>
-                        <Link href='/categories' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>Categories</Link>
-                        <Link href='/products' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>Products</Link>
-                        <Link href='/aboutus' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif'>About Us</Link>
+                    <nav className='flex flex-wrap my-5 items-center gap-4'>
+                        <Link href='/' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>Home</Link>
+                        <Link href='/artisan' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>Artisan</Link>
+                        <Link href='/bestsellers' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>Best Sellers</Link>
+                        <Link href='/categories' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>Categories</Link>
+                        <Link href='/products' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>Products</Link>
+                        <Link href='/aboutus' className='text-[#AA7639] text-[20px] leading-[23.42px] font-light font-robotoSerif' onClick={toggleMobileMenu}>About Us</Link>
                     </nav>
+
                 </div>
             )}
 
