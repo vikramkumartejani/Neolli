@@ -5,10 +5,15 @@ import Academy from "./components/Academy";
 import OurArtisans from "./components/OurArtisans";
 import PopularCategories from "./components/PopularCategories";
 import WhatIsNeolli from "./components/WhatIsNeolli";
+import Topbar from "./components/Topbar";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
+    <Topbar/>
+    <Navbar/>
       {/* <div className=""> */}
       {/* <div className="w-full home-img bg-contain">
           </div> */}
@@ -27,6 +32,7 @@ export default function Home() {
       <Academy />
       <ImGoingForIt />
       <FAQ />
+      <Footer/>
       {/* </div> */}
     </>
   );

@@ -4,6 +4,9 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { BiMenuAltLeft } from "react-icons/bi";
 import { FaStar } from "react-icons/fa";
+import Footer from '../components/Footer';
+import Topbar from '../components/Topbar';
+import Navbar from '../components/Navbar';
 
 
 const products = [
@@ -162,6 +165,9 @@ const BestSellers = () => {
     };
 
     return (
+        <>
+        <Topbar/>
+        <Navbar/>
         <div className='max-w-[1150px] w-full mx-auto mt-8 mb-[200px] px-3'>
             <div className='md:flex items-start md:gap-5'>
 
@@ -354,6 +360,8 @@ const BestSellers = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
     )
 }
 

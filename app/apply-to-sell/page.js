@@ -3,9 +3,15 @@ import ImGoingForIt from '../components/ImGoingForIt'
 import Link from 'next/link'
 import { FaQ } from 'react-icons/fa6'
 import FAQ from '../components/FAQ'
+import Footer from '../components/Footer'
+import Topbar from '../components/Topbar'
+import Navbar from '../components/Navbar'
 
 const ApplyToSell = () => {
   return (
+    <>
+    <Topbar/>
+    <Navbar/>
     <div className='my-8 text-center w-full'>
         <div className='mb-[70px] px-3 sm:px-8 md:px-[50px] lg:px-[66px] '>
             <div className='flex items-center gap-1'>
@@ -96,6 +102,8 @@ const ApplyToSell = () => {
         <ImGoingForIt/>
         <FAQ/>
     </div>
+    <Footer/>
+    </>
   )
 }
 
